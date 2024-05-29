@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  math-ai-jupyterlab:
+    container_name: math-ai-jupyterlab
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8888:8888"
+    volumes:
+      - ../EDA:/app/EDA
+      - ../Data:/app/Data
+    command: ["jupyter", "lab", "--ip='*'", "--port=8888", "--no-browser", "--allow-root"]
+
